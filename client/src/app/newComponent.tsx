@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import CompList from "./list";
 import ListNameItem, { TListNameItem } from "./listItem";
+import { useGetTodosQuery } from "./services/todo";
 
 const Welcome = () => {
-    const [list, setList] = useState<TListNameItem[]>([]);
-
+    const { data, error, isLoading } = useGetTodosQuery('')
+    const [list, setList] = useState<TListNameItem[]>(data ?? []);
+ 
     const addComponent = () => {
        setList((compList) => [...compList, {name: `Valentina ${list.length + 1}`, lastName: "Codutti"}]);
     };
