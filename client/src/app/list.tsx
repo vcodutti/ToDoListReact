@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const CompList = (props : {
     children: JSX.Element[],
@@ -8,7 +8,7 @@ const CompList = (props : {
     return (
         <div className="mt-4 space-y-2">
             {props.children.map((child, index) => {
-                return <div>
+                return <div key={index}>
                         {child}
                         <button
                             onClick={() => props.onDeleteComponent(index)}

@@ -1,12 +1,18 @@
 'use client';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CompList from "./list";
 import ListNameItem, { TListNameItem } from "./listItem";
 import { useGetTodosQuery } from "./services/todo";
 
 const Welcome = () => {
-    const { data, error, isLoading } = useGetTodosQuery('')
+    const { data } = useGetTodosQuery('')
     const [list, setList] = useState<TListNameItem[]>(data ?? []);
+ 
+    // Temporal until BE server add/removes element from list.
+    // Read: https://react.dev/reference/react/useEffect !! Reactive programming.
+    useEffect(() => {
+      setList(data ?? []);
+    }, [data]);
  
     const addComponent = () => {
        setList((compList) => [...compList, {name: `Valentina ${list.length + 1}`, lastName: "Codutti"}]);

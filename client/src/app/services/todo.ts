@@ -8,7 +8,7 @@ export const todoApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8080/todo' }),
   endpoints: (builder) => ({
     getTodos: builder.query<TListNameItem[], string>({
-      query: (name) => `/`,
+      query: () => `/`,
     }),
   }),
 })

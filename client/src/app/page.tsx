@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Welcome from "../app/newComponent";
 import { Provider } from 'react-redux'
@@ -15,9 +16,9 @@ export default function Home() {
           height={38}
           priority
         />
-        <Provider store={store}>
+       <Provider store={store}> 
           <Welcome />
-        </Provider>
+       </Provider> 
         
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
